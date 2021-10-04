@@ -5,12 +5,13 @@
  */
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import DevelopersItem from 'containers/DevelopersItem';
 import Header from '../../components/Header';
 import CenteredSection from './CenteredSection';
 
 export default function FeaturePage() {
   return (
-    <div>
+    <article>
       <Helmet>
         <title>Feature Page</title>
         <meta
@@ -21,8 +22,9 @@ export default function FeaturePage() {
       <div>
         <CenteredSection>
           <Header />
+          <DevelopersItem />
         </CenteredSection>
       </div>
-    </div>
+    </article>
   );
 }
