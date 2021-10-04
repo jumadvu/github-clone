@@ -8,6 +8,7 @@ import { reposLoaded, repoLoadingError } from 'containers/App/actions';
 import request from 'utils/request';
 import { makeSelectUsername } from 'containers/HomePage/selectors';
 import { list } from './list';
+import { developers } from './developers';
 
 /**
  * Github repos request/response handler
@@ -33,11 +34,13 @@ function* fetchRepositories() {
   // );
   // json.json().then(body => console.log(body));
   yield put({ type: 'REPOSITORIES_RECEIVED', list });
+  yield put({ type: 'DEVELOPERS_RECEIVED', list: developers });
 }
 
 function* actionWatcher() {
   yield takeLatest('GET_REPOSITORIES', fetchRepositories);
   yield put({ type: 'REPOSITORIES_RECEIVED', list });
+  yield put({ type: 'DEVELOPERS_RECEIVED', list: developers });
 }
 /**
  * Root saga manages watcher lifecycle

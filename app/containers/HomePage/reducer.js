@@ -8,7 +8,11 @@
  */
 import produce from 'immer';
 
-import { GET_REPOSITORIES, REPOSITORIES_RECEIVED } from './constants';
+import {
+  GET_REPOSITORIES,
+  REPOSITORIES_RECEIVED,
+  DEVELOPERS_RECEIVED,
+} from './constants';
 
 // The initial state of the App
 export const initialState = {};
@@ -20,10 +24,16 @@ const homeReducer = (state = initialState, action) =>
       case GET_REPOSITORIES:
         draft.loading = true;
         draft.repositories = [];
+        draft.developers = [];
         break;
 
       case REPOSITORIES_RECEIVED:
         draft.repositories = action.list;
+        draft.loading = false;
+        break;
+
+      case DEVELOPERS_RECEIVED:
+        draft.developers = action.list;
         draft.loading = false;
         break;
     }

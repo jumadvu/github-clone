@@ -3,7 +3,7 @@ import Section from './Section';
 
 const CenteredSection = styled(Section)`
   text-align: center;
-  max-width: calc(768px + 16px * 2);
+  max-width: calc(968px + 16px * 2);
   background-color: #22272e;
   border-color: #414851;
   border-style: solid;
